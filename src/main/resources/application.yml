@@ -1,0 +1,14 @@
+spring:
+  data:
+    mongodb:
+      host: 172.17.0.2
+      database: local
+
+
+logging:
+  org:
+    springframework:
+      web:
+        reactive:
+          function:
+            client: debug
