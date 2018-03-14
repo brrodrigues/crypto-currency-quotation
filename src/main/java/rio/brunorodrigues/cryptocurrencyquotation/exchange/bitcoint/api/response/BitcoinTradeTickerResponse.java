@@ -1,10 +1,7 @@
 package rio.brunorodrigues.cryptocurrencyquotation.exchange.bitcoint.api.response;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import rio.brunorodrigues.cryptocurrencyquotation.exchange.TickerResponse;
 import rio.brunorodrigues.cryptocurrencyquotation.exchange.bitcoint.api.response.data.BitcoinTradeTickerData;
-
-import java.util.Date;
 
 public class BitcoinTradeTickerResponse implements TickerResponse {
 

@@ -3,8 +3,6 @@ package rio.brunorodrigues.cryptocurrencyquotation.exchange.braziliex.api.respon
 import rio.brunorodrigues.cryptocurrencyquotation.exchange.TickerResponse;
 import rio.brunorodrigues.cryptocurrencyquotation.exchange.braziliex.api.response.data.BraziliexTickerData;
 
-import java.util.Date;
-
 public class BraziliexTickerResponse implements TickerResponse {
 
     private final String exchange = "Braziliex";
