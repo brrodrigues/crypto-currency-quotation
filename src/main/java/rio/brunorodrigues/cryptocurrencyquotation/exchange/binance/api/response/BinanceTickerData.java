@@ -202,7 +202,7 @@ public class BinanceTickerData {
 
     @Override
     public String toString() {
-        return "BinanceTickerData{" +
+        return "CoinbaseData{" +
                 "symbol='" + symbol + '\'' +
                 ", priceChange='" + priceChange + '\'' +
                 ", priceChangePercent='" + priceChangePercent + '\'' +

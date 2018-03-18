@@ -1,4 +1,4 @@
-package rio.brunorodrigues.cryptocurrencyquotation.exchange.bitcoint.api.response.data;
+package rio.brunorodrigues.cryptocurrencyquotation.exchange.bitcointrade.api.response.data;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

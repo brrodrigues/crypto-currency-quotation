@@ -9,13 +9,13 @@ import org.springframework.web.reactive.socket.WebSocketHandler;
 import org.springframework.web.reactive.socket.WebSocketMessage;
 import org.springframework.web.reactive.socket.WebSocketSession;
 import reactor.core.publisher.Mono;
-import rio.brunorodrigues.cryptocurrencyquotation.controller.TickerController;
+import rio.brunorodrigues.cryptocurrencyquotation.service.TickerService;
 
 @Component
 public class DashboardReactiveWebSocketHandler implements WebSocketHandler {
 
     @Autowired
-    private TickerController controller;
+    private TickerService controller;
 
     @Autowired
     private ApplicationContext applicationContext;
@@ -28,7 +28,6 @@ public class DashboardReactiveWebSocketHandler implements WebSocketHandler {
                 and(webSocketSession.receive().map(WebSocketMessage::getPayloadAsText));
 
     }
-
 
     private String toJsonString(Object object){
         ObjectMapper bean = applicationContext.getBean(ObjectMapper.class);

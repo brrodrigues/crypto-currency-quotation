@@ -1,10 +1,13 @@
 package rio.brunorodrigues.cryptocurrencyquotation.exchange.braziliex.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
+import rio.brunorodrigues.cryptocurrencyquotation.exchange.TradeAPI;
 import rio.brunorodrigues.cryptocurrencyquotation.exchange.braziliex.api.response.BraziliexTickerResponse;
 import rio.brunorodrigues.cryptocurrencyquotation.exchange.braziliex.api.response.data.BraziliexTickerData;
 
@@ -12,18 +15,28 @@ import java.io.IOException;
 import java.time.Duration;
 
 @Component
-public class BraziliexAPI  {
+public class BraziliexAPI implements TradeAPI {
 
-    public final static String URL = "https://braziliex.com/api/v1/public/ticker";
+    private final Logger LOG = LoggerFactory.getLogger(BraziliexAPI.class);
+
+    public final static String URL = "https://braziliex.com/CexIOAPI/v1/public/ticker";
 
     @Autowired
     private ObjectMapper objectMapper;
 
-    public Flux<BraziliexTickerResponse> getTicker(String ticker) {
+    @Override
+    public Flux<BraziliexTickerResponse> getTicker() {
+        LOG.info("Entrando Braziliex!!!");
+
         return WebClient.
-                create(URL + "/" + ticker).
+                create(URL + "/btc_brl").
                 get().
-                retrieve().bodyToFlux(String.class).map(this::readFrom).map(this::prepareReturnResponse).delaySubscription(Duration.ofSeconds(1)).repeat();
+                retrieve().
+                bodyToFlux(String.class).
+                log().
+                map(this::readFrom).
+                map(this::prepareReturnResponse).
+                delaySubscription(Duration.ofSeconds(1)).repeat();
                 //exchange().flatMapMany(clientResponse -> clientResponse.bodyToFlux(String.class));
                 //.repeat();
 

@@ -1,7 +1,7 @@
-package rio.brunorodrigues.cryptocurrencyquotation.exchange.bitcoint.api.response;
+package rio.brunorodrigues.cryptocurrencyquotation.exchange.bitcointrade.api.response;
 
 import rio.brunorodrigues.cryptocurrencyquotation.exchange.TickerResponse;
-import rio.brunorodrigues.cryptocurrencyquotation.exchange.bitcoint.api.response.data.BitcoinTradeTickerData;
+import rio.brunorodrigues.cryptocurrencyquotation.exchange.bitcointrade.api.response.data.BitcoinTradeTickerData;
 
 public class BitcoinTradeTickerResponse implements TickerResponse {
 
